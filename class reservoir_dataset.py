@@ -53,7 +53,7 @@ class reservoir_dataset(Dataset):
             input_list.append(input_tensor)
             output_list.append(output_tensor)
             #
-        sample = (input_list,output_list)
+        sample = torch.stack(input_list,dim=0),torch.stack(output_list,dim=0)
 
         if self.transform:
             sample = self.transform(sample)
